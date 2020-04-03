@@ -1,0 +1,16 @@
+version: '3'
+
+volumes:
+    mongovolume:
+        driver: local
+
+services:
+    mongodb_container:
+        container_name: 'mongo'
+        image: 'mongo:latest'
+        environment:
+            - MONGO_INITDB_DATABASE=cm
+        volumes:
+            - mongovolume:/data/db
+        ports:
+            - '27017:27017'
